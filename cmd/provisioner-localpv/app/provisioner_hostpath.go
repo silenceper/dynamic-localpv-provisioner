@@ -239,7 +239,8 @@ func (p *Provisioner) GetNodeObjectFromLabels(nodeLabels map[string]string) (*v1
 		// After the PV is created and node affinity is set
 		// on a custom affinity label, there may be a transitory state
 		// with two nodes matching (old and new) label.
-		return nil, errors.Errorf("Unable to determine the Node. Found multiple nodes matching the labels {%v}", nodeLabels)
+		alertlog.Logger.Warnf("Found multiple nodes matching the labels {%v}", nodeLabels)
+		// return nil, errors.Errorf("Unable to determine the Node. Found multiple nodes matching the labels {%v}", nodeLabels)
 	}
 	return &nodeList.Items[0], nil
 

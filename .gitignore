@@ -8,3 +8,6 @@ cmd/provisioner-localpv/start.sh
 
 # Ginkgo test
 tests/tests.test
+.codecc
+.idea
+.vscode
